@@ -102,7 +102,9 @@ public class RegistrationFormController {
                     e.printStackTrace();
                 }
             }else {
-
+                txtName.clear();
+                txtAddress.clear();
+                txtContactNo.clear();
             }
         });
 

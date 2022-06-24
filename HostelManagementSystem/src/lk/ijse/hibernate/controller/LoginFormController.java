@@ -31,10 +31,21 @@ public class LoginFormController {
             lblWrong.setText("Please enter your UserName and Password");
 
         }else if (txtUserName.getText()!=null&& txtPassword.getText()!=null){
-           // List<UserDTO> userDetails = logBO.getUserDetails(txtUserName.getText(), txtPassword.getText());
+            List<UserDTO> userDetails = logBO.getUserDetails(txtUserName.getText(), txtPassword.getText());
+            UserDTO userDTO = new UserDTO();
+            for (UserDTO u:userDetails
+                 ) {
+                userDTO.setUserName(u.getUserName());
+                userDTO.setPassword(u.getPassword());
+            }
+
+            if (txtUserName.getText().equals(userDTO.getUserName()) &&  txtPassword.getText().equals(userDTO.getPassword())){
+                setUI("DashBoardForm");
+            }else {
+                new Alert(Alert.AlertType.WARNING,"Wrong UserName OR Password, Try Again!").show();
+            }
 
 
-            setUI("DashBoardForm");
 
         }else {
             new Alert(Alert.AlertType.WARNING,"Try Again !").show();
