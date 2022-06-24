@@ -1,0 +1,26 @@
+.btn{
+    -fx-background-color: #03324a;
+    -fx-background-radius: 20 0 0 20;
+}
+.btnReport{
+    -fx-background-color:  #03324a;
+}
+.btn:hover{
+    -fx-background-color: #3498db;
+
+}
+.btnReport:hover{
+     -fx-background-color:  #079992;
+ }
+.btn:focused{
+    -fx-background-color:   #ecf0f1;
+    -fx-text-fill:  black;
+}
+.btnLogOut:hover{
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+}
+.btnLogOut{
+    -fx-background-color: white;
+    -fx-background-radius: 40;
+}

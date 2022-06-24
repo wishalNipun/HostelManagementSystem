@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="730.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.StudentManagementFormController">
+   <children>
+      <Separator layoutX="61.0" layoutY="71.0" prefHeight="12.0" prefWidth="959.0" />
+      <JFXTextField fx:id="txtStudentId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Student Id" unFocusColor="BLACK" />
+      <TableView fx:id="tblStudent" layoutX="68.0" layoutY="268.0" prefHeight="417.0" prefWidth="959.0">
+         <columns>
+            <TableColumn fx:id="colStudentId" prefWidth="128.0" text="Student Id" />
+            <TableColumn fx:id="colName" prefWidth="180.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="170.0" text="Address" />
+            <TableColumn fx:id="colContactNo" prefWidth="161.0" text="Contact No" />
+            <TableColumn fx:id="colDOB" prefWidth="177.0" text="Date Of Birth" />
+            <TableColumn fx:id="colGender" prefWidth="140.0" text="Gender" />
+         </columns>
+      </TableView>
+      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="577.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Address" unFocusColor="BLACK" />
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="715.0" layoutY="206.0" onAction="#btnSaveOnAction" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #3498db;" text="Save" />
+      <JFXTextField fx:id="txtContactNo" focusColor="BLACK" labelFloat="true" layoutX="815.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Contact No" unFocusColor="BLACK" />
+      <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="387.0" text="Student Management">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#3498db" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="952.0" layoutY="32.0" onAction="#btnNewOnAction" prefHeight="40.0" prefWidth="66.0" style="-fx-background-color: #3498db; -fx-background-radius: 2.0em;" text="New +" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="888.0" layoutY="206.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #3498db;" text="Delete" />
+      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="315.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Name" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtDOB" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="206.0" prefHeight="40.0" prefWidth="192.0" promptText="Date Of Birth" unFocusColor="BLACK" />
+      <JFXComboBox fx:id="cmbGender" focusColor="BLACK" labelFloat="true" layoutX="315.0" layoutY="206.0" prefHeight="40.0" prefWidth="192.0" promptText="Gender" unFocusColor="BLACK" />
+   </children>
+</AnchorPane>
