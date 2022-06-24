@@ -196,60 +196,13 @@ public class RegistrationFormController {
         btnRegister.setDisable(!(cmbStudentId.getSelectionModel().getSelectedItem() != null && !tblCart.getItems().isEmpty()));
     }
     public void btnRegisterOnAction(ActionEvent actionEvent) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
         try {
-            ObservableList<CartTM> items = tblCart.getItems();
-            for (CartTM tm:items
-            ) {
-                List<RoomDTO> roomDetailUsingId = registrationBO.getRoomDetailUsingId(tm.getRoom_type_id());
-                RoomDTO roomDTO = new RoomDTO();
+            registrationBO.Register(tblCart.getItems(),cmbStudentId.getValue(),lblReservation.getText());
 
-                for (RoomDTO r:roomDetailUsingId
-                ) {
-                    roomDTO.setRoom_type_id(r.getRoom_type_id());
-                    roomDTO.setType(r.getType());
-                    roomDTO.setKey_money(r.getKey_money());
-                    roomDTO.setQty(r.getQty()-1);
-                }
-
-                List<StudentDTO> studentDetailUsingId = registrationBO.getStudentDetailUsingId(cmbStudentId.getValue());
-
-                StudentDTO studentDTO = new StudentDTO();
-                for (StudentDTO s:studentDetailUsingId
-                ) {
-                    studentDTO.setStudent_id(s.getStudent_id());
-                    studentDTO.setName(s.getName());
-                    studentDTO.setAddress(s.getAddress());
-                    studentDTO.setContact_no(s.getContact_no());
-                    studentDTO.setDob(s.getDob());
-                    studentDTO.setGender(s.getGender());
-
-                }
-
-                Reservation r = new Reservation();
-                r.setRes_id(lblReservation.getText());
-                r.setDate(LocalDate.now());
-                r.setStatus(tm.getStatus());
-                r.setRoom(new Room(roomDTO.getRoom_type_id(),roomDTO.getType(),roomDTO.getKey_money(),roomDTO.getQty()));
-                r.setStudent(new Student(studentDTO.getStudent_id(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getContact_no(),studentDTO.getDob(),studentDTO.getGender()));
-
-                session.save(r);
-                session.update(new Room(roomDTO.getRoom_type_id(),roomDTO.getType(),roomDTO.getKey_money(),roomDTO.getQty()));
-                transaction.commit();
-
-            }
-
-
-
+            System.out.println(tblCart.getItems());
         } catch (Exception e) {
-            transaction.rollback();
             e.printStackTrace();
         }
-
-
-        session.close();
 
         generateNewId();
         cmbStudentId.getSelectionModel().clearSelection();

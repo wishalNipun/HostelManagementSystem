@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.bo.custom.impl;
 
+import javafx.collections.ObservableList;
 import lk.ijse.hibernate.bo.custom.RegistrationBO;
 import lk.ijse.hibernate.dao.custom.RegistrationDAO;
 import lk.ijse.hibernate.dao.custom.RoomDAO;
@@ -9,10 +10,16 @@ import lk.ijse.hibernate.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hibernate.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.hibernate.dto.RoomDTO;
 import lk.ijse.hibernate.dto.StudentDTO;
+import lk.ijse.hibernate.entity.Reservation;
 import lk.ijse.hibernate.entity.Room;
 import lk.ijse.hibernate.entity.Student;
+import lk.ijse.hibernate.util.FactoryConfiguration;
+import lk.ijse.hibernate.view.tm.CartTM;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +27,62 @@ public class RegistrationBOImpl implements RegistrationBO {
     private final StudentDAO studentDAO = new StudentDAOImpl();
     private final RoomDAO roomDAO = new RoomDAOImpl();
     private final RegistrationDAO registrationDAO = new RegistrationDAOImpl();
+
+    @Override
+    public void Register(ObservableList<CartTM> list, String studentId, String lblId) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            ObservableList<CartTM> items = list;
+            for (CartTM tm:items
+            ) {
+                List<Room> roomDetailUsingId = roomDAO.getRoomDetailUsingId(tm.getRoom_type_id());
+                Room room = new Room();
+
+                for (Room r:roomDetailUsingId
+                ) {
+                    room.setRoom_type_id(r.getRoom_type_id());
+                    room.setType(r.getType());
+                    room.setKey_money(r.getKey_money());
+                    room.setQty(r.getQty()-1);
+                }
+
+                List<Student> studentDetailUsingId = studentDAO.getStudentDetailsUsingId(studentId);
+
+                Student student = new Student();
+                for (Student s:studentDetailUsingId
+                ) {
+                    student.setStudent_id(s.getStudent_id());
+                    student.setName(s.getName());
+                    student.setAddress(s.getAddress());
+                    student.setContact_no(s.getContact_no());
+                    student.setDob(s.getDob());
+                    student.setGender(s.getGender());
+
+                }
+
+                Reservation r = new Reservation();
+                r.setRes_id(lblId);
+                r.setDate(LocalDate.now());
+                r.setStatus(tm.getStatus());
+                r.setRoom(room);
+                r.setStudent(student);
+
+                session.save(r);
+                session.update(room);
+                transaction.commit();
+
+            }
+
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
+
+        session.close();
+    }
 
     @Override
     public List<StudentDTO> getAllStudents() throws IOException {
