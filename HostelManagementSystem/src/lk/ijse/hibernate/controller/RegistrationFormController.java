@@ -88,19 +88,22 @@ public class RegistrationFormController {
 
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             enableOrDisableRegisterButton();
-            try {
-                List<StudentDTO> list = registrationBO.getStudentDetailUsingId(newValue);
-                for (StudentDTO dto:list
-                     ) {
-                    txtName.setText(dto.getName());
-                    txtAddress.setText(dto.getAddress());
-                    txtContactNo.setText(dto.getContact_no());
+            if (newValue != null) {
+                try {
+                    List<StudentDTO> list = registrationBO.getStudentDetailUsingId(newValue);
+                    for (StudentDTO dto : list
+                    ) {
+                        txtName.setText(dto.getName());
+                        txtAddress.setText(dto.getAddress());
+                        txtContactNo.setText(dto.getContact_no());
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            }else {
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
         });
 
         cmbRoomTypeId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -247,6 +250,12 @@ public class RegistrationFormController {
 
 
         session.close();
+
+        generateNewId();
+        cmbStudentId.getSelectionModel().clearSelection();
+        cmbRoomTypeId.getSelectionModel().clearSelection();
+        cmbPaymentStatus.getSelectionModel().clearSelection();
+        tblCart.getItems().clear();
     }
 
     private void generateNewId() {
