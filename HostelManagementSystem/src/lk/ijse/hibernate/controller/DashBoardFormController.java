@@ -90,4 +90,8 @@ public class DashBoardFormController {
     public void btnRegistration(ActionEvent actionEvent) throws IOException {
         setUI("RegistrationForm");
     }
+
+    public void btnKeyMoneyOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("PendingKeyMoneyForm");
+    }
 }

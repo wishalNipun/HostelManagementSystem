@@ -77,7 +77,19 @@
                </image></ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutY="283.0" onAction="#btnUserManagementOnAction" prefHeight="70.0" prefWidth="209.0" styleClass="btn" stylesheets="@../assets/style/css.css" text="User Management" textFill="WHITE" wrapText="true">
+      <JFXButton layoutY="283.0" onAction="#btnKeyMoneyOnAction" prefHeight="70.0" prefWidth="209.0" styleClass="btn" stylesheets="@../assets/style/css.css" text="Key Money Pending" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="47.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/images/key-money.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutY="354.0" onAction="#btnUserManagementOnAction" prefHeight="70.0" prefWidth="209.0" styleClass="btn" stylesheets="@../assets/style/css.css" text="User Management" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
