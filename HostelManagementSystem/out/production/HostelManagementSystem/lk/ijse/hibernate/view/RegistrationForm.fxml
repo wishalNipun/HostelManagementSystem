@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -25,7 +24,7 @@
             <TableColumn fx:id="colDelete" prefWidth="157.0" text="---" />
          </columns>
       </TableView>
-      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="835.0" layoutY="305.0" onAction="#btnAddToCartOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #3498db;" text="Add To Cart" />
+      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="835.0" layoutY="305.0" onAction="#btnAddToCartOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #3498db;" text="Add " />
       <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="473.0" text="Add Payment For Student">
          <font>
             <Font name="System Bold" size="36.0" />
@@ -41,16 +40,6 @@
       </Label>
       <JFXComboBox fx:id="cmbStudentId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Student Id" unFocusColor="BLACK" />
       <JFXComboBox fx:id="cmbRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="221.0" prefHeight="40.0" prefWidth="192.0" promptText="Room Type Id" unFocusColor="BLACK" />
-      <Label layoutX="49.0" layoutY="675.0" prefHeight="36.0" prefWidth="85.0" text="Cost :">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblTotal" alignment="TOP_LEFT" layoutX="134.0" layoutY="679.0" prefHeight="25.0" prefWidth="100.0" text="0" textFill="#ae1212">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
       <JFXButton fx:id="btnRegister" buttonType="RAISED" layoutX="835.0" layoutY="665.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #3498db;" text="Register" />
       <Label layoutX="791.0" layoutY="83.0" prefHeight="36.0" prefWidth="150.0" text="Reservation Id :">
          <font>
@@ -69,21 +58,5 @@
       <JFXTextField fx:id="txtKeyMoney" focusColor="BLACK" labelFloat="true" layoutX="587.0" layoutY="221.0" prefHeight="40.0" prefWidth="192.0" promptText="Key Money" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtQty" focusColor="BLACK" labelFloat="true" layoutX="825.0" layoutY="221.0" prefHeight="40.0" prefWidth="192.0" promptText="Quantity" unFocusColor="BLACK" />
       <JFXComboBox fx:id="cmbPaymentStatus" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="305.0" prefHeight="40.0" prefWidth="192.0" promptText="Payment Status" unFocusColor="BLACK" />
-      <TextField fx:id="txtAmount" layoutX="587.0" layoutY="305.0" prefHeight="40.0" prefWidth="157.0" promptText="0.0" />
-      <Label fx:id="lblEnterCashAmount" layoutX="309.0" layoutY="306.0" prefHeight="38.0" prefWidth="247.0" text="Enter CASH Amount :">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="629.0" layoutY="667.0" prefHeight="36.0" prefWidth="85.0" text="Balance :">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBalance" alignment="TOP_LEFT" layoutX="714.0" layoutY="671.0" prefHeight="25.0" prefWidth="100.0" text="0" textFill="#ae1212">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

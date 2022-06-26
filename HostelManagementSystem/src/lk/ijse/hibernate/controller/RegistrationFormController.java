@@ -44,9 +44,7 @@ public class RegistrationFormController {
     public JFXTextField txtKeyMoney;
     public JFXTextField txtQty;
     public JFXComboBox<String> cmbPaymentStatus;
-    public TextField txtAmount;
     private final RegistrationBO registrationBO = new RegistrationBOImpl();
-    public Label lblEnterCashAmount;
     public TableView<CartTM> tblCart;
 
     public void initialize(){
@@ -79,8 +77,7 @@ public class RegistrationFormController {
         txtQty.setEditable(false);
         btnAddToCart.setDisable(true);
         btnRegister.setDisable(true);
-        txtAmount.setDisable(true);
-        lblEnterCashAmount.setDisable(true);
+
         btnAddToCart.setDisable(true);
 
 
@@ -133,20 +130,7 @@ public class RegistrationFormController {
         });
 
         cmbPaymentStatus.getItems().addAll("Paid","Paid Later");
-        cmbPaymentStatus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-           if (newValue!=null){
-               if (newValue.equals("Paid")){
-                   txtAmount.setDisable(false);
-                   lblEnterCashAmount.setDisable(false);
-               }else {
-                   txtAmount.setDisable(true);
-                   lblEnterCashAmount.setDisable(true);
-               }
-           }
-        });
 
-
-        
     }
 
     private void setRoomId() {
