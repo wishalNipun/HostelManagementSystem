@@ -6,6 +6,7 @@ import lk.ijse.hibernate.entity.Student;
 import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.List;
@@ -41,5 +42,22 @@ public class RegistrationDAOImpl implements RegistrationDAO {
         session.close();
 
         return resultList.size()==0?"RS000":((Reservation)resultList.get(0)).getRes_id();
+    }
+
+    @Override
+    public boolean updateUsingId(String id, String status) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "UPDATE Reservation SET status = :s WHERE res_id = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("s",status );
+        query.setParameter("id", id);
+
+        int i = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+        return i>0;
     }
 }

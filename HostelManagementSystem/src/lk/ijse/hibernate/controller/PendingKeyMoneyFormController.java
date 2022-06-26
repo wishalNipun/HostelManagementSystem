@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -98,5 +99,26 @@ public class PendingKeyMoneyFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        try {
+            boolean b = pendingKeyMoneyBO.updateReservationUsingId(txtReservationId.getText(), String.valueOf(cmbPaymentStatus.getValue()));
+            if (b){
+
+                new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();
+            }
+            tblReservation.getItems().remove(tblReservation.getSelectionModel().getSelectedItem());
+            tblReservation.getSelectionModel().clearSelection();
+            txtReservationId.clear();
+            txtName.clear();
+            txtRoomTypeId.clear();
+            txtStudentId.clear();
+            txtType.clear();
+            txtKeyMoney.clear();
+            cmbPaymentStatus.getSelectionModel().clearSelection();
+            txtDate.clear();
+            btnUpdate.setDisable(true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

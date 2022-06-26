@@ -35,7 +35,6 @@ public class RegistrationFormController {
     public JFXButton btnAddToCart;
     public JFXComboBox<String> cmbStudentId;
     public JFXComboBox<String> cmbRoomTypeId;
-    public Label lblTotal;
     public JFXButton btnRegister;
     public Label lblReservation;
     public JFXTextField txtAddress;
@@ -46,7 +45,6 @@ public class RegistrationFormController {
     public JFXTextField txtQty;
     public JFXComboBox<String> cmbPaymentStatus;
     public TextField txtAmount;
-    public Label lblBalance;
     private final RegistrationBO registrationBO = new RegistrationBOImpl();
     public Label lblEnterCashAmount;
     public TableView<CartTM> tblCart;
