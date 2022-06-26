@@ -14,7 +14,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/hibernate/view/LoginForm.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/hibernate/view/PendingKeyMoneyForm.fxml"))));
         primaryStage.setTitle("Hostel Management System");
         Image image = new Image("lk/ijse/hibernate/assets/images/SoftwareIcon.png");
         primaryStage.getIcons().add(image);

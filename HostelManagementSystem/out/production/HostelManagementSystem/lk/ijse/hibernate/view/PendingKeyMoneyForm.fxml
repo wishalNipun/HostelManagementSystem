@@ -12,7 +12,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="730.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.PendingKeyMoneyFormController">
    <children>
       <Separator layoutX="61.0" layoutY="71.0" prefHeight="12.0" prefWidth="954.0" />
@@ -29,24 +28,25 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TableView fx:id="tblReservation" layoutX="55.0" layoutY="289.0" prefHeight="370.0" prefWidth="982.0">
+      <TableView fx:id="tblReservation" layoutX="61.0" layoutY="283.0" prefHeight="370.0" prefWidth="987.0">
          <columns>
-            <TableColumn fx:id="colReservationId" prefWidth="126.0" text="Reservation Id" />
-            <TableColumn fx:id="colStudentId" prefWidth="130.0" text="Student Id" />
-            <TableColumn fx:id="colName" prefWidth="132.0" text="name" />
-            <TableColumn fx:id="colAddress" prefWidth="139.0" text="Address" />
-            <TableColumn fx:id="colContactNo" prefWidth="142.0" text="Contact No" />
-            <TableColumn fx:id="colPaymentStatus" prefWidth="164.0" text="Payment Status" />
-            <TableColumn fx:id="colDate" prefWidth="145.0" text="Date" />
+            <TableColumn fx:id="colReservationId" prefWidth="125.0" text="Reservation Id" />
+            <TableColumn fx:id="colStudentId" prefWidth="120.0" text="Student Id" />
+            <TableColumn fx:id="colName" prefWidth="114.0" text="Name" />
+            <TableColumn fx:id="colRoomTypeId" prefWidth="126.0" text="Room Type Id" />
+            <TableColumn fx:id="colType" prefWidth="141.0" text="Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="111.0" text="Key Money" />
+            <TableColumn fx:id="colPaymentStatus" prefWidth="146.0" text="Payment Status" />
+            <TableColumn fx:id="colDate" prefWidth="102.0" text="Date" />
          </columns>
       </TableView>
       <JFXTextField fx:id="txtStudentId" focusColor="BLACK" labelFloat="true" layoutX="311.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Student Id" unFocusColor="BLACK" />
       <JFXComboBox fx:id="cmbPaymentStatus" focusColor="BLACK" labelFloat="true" layoutX="311.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Payment Status" unFocusColor="BLACK" />
       <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="802.0" layoutY="205.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #3498db;" text="Update" />
-      <JFXTextField fx:id="txtReservationid" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Reservation Id" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtReservationId" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Reservation Id" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtDate" focusColor="BLACK" labelFloat="true" layoutX="555.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Date" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="555.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Name" unFocusColor="BLACK" />
-      <JFXTextField fx:id="txtContactNo" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Contact No" unFocusColor="BLACK" />
-      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="802.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Address" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtType" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Type" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="802.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Room Type Id" unFocusColor="BLACK" />
    </children>
 </AnchorPane>
