@@ -28,7 +28,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TableView fx:id="tblReservation" layoutX="61.0" layoutY="283.0" prefHeight="370.0" prefWidth="987.0">
+      <TableView fx:id="tblReservation" layoutX="61.0" layoutY="330.0" prefHeight="323.0" prefWidth="987.0">
          <columns>
             <TableColumn fx:id="colReservationId" prefWidth="125.0" text="Reservation Id" />
             <TableColumn fx:id="colStudentId" prefWidth="120.0" text="Student Id" />
@@ -41,12 +41,13 @@
          </columns>
       </TableView>
       <JFXTextField fx:id="txtStudentId" focusColor="BLACK" labelFloat="true" layoutX="311.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Student Id" unFocusColor="BLACK" />
-      <JFXComboBox fx:id="cmbPaymentStatus" focusColor="BLACK" labelFloat="true" layoutX="311.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Payment Status" unFocusColor="BLACK" />
-      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="802.0" layoutY="205.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #3498db;" text="Update" />
+      <JFXComboBox fx:id="cmbPaymentStatus" focusColor="BLACK" labelFloat="true" layoutX="555.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Payment Status" unFocusColor="BLACK" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="802.0" layoutY="268.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #3498db;" text="Update" />
       <JFXTextField fx:id="txtReservationId" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Reservation Id" unFocusColor="BLACK" />
-      <JFXTextField fx:id="txtDate" focusColor="BLACK" labelFloat="true" layoutX="555.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Date" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtDate" focusColor="BLACK" labelFloat="true" layoutX="802.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Date" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="555.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Name" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtType" focusColor="BLACK" labelFloat="true" layoutX="68.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Type" unFocusColor="BLACK" />
       <JFXTextField fx:id="txtRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="802.0" layoutY="117.0" prefHeight="40.0" prefWidth="213.0" promptText="Room Type Id" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtKeyMoney" focusColor="BLACK" labelFloat="true" layoutX="311.0" layoutY="205.0" prefHeight="40.0" prefWidth="213.0" promptText="Key Money" unFocusColor="BLACK" />
    </children>
 </AnchorPane>
