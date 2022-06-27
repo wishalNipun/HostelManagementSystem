@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.RoomBO;
 import lk.ijse.hibernate.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hibernate.dto.RoomDTO;
@@ -32,7 +33,7 @@ public class RoomManagementFormController {
     public JFXTextField txtKeyMoney;
     public TableColumn colKeyMoney;
     public JFXButton btnSave;
-    private final RoomBO roomBO = new RoomBOImpl();
+    private final RoomBO roomBO = (RoomBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.ROOM);
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
 
     public void initialize(){

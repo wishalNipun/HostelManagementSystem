@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.PendingKeyMoneyBO;
 import lk.ijse.hibernate.bo.custom.impl.PendingKeyMoneyBOImpl;
 import lk.ijse.hibernate.dto.CustomDTO;
@@ -27,7 +28,7 @@ public class PendingKeyMoneyFormController {
     public TableColumn colDate;
     public TableColumn colPaymentStatus;
     public JFXTextField txtReservationId;
-    final private PendingKeyMoneyBO pendingKeyMoneyBO = new PendingKeyMoneyBOImpl();
+    final private PendingKeyMoneyBO pendingKeyMoneyBO = (PendingKeyMoneyBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PENDINGKEYMONEY);
     public TableColumn colType;
     public TableColumn colRoomTypeId;
     public TableColumn colKeyMoney;

@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.UserBO;
 import lk.ijse.hibernate.bo.custom.impl.UserBOImpl;
 import lk.ijse.hibernate.dto.UserDTO;
@@ -38,7 +39,7 @@ public class UserFormController {
     public JFXButton btnNew;
     public JFXButton btnDelete;
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    private final UserBO userBO = new UserBOImpl();
+    private final UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
     public void initialize(){
         textClearAndBtnDisable();
         loadALLUsers();

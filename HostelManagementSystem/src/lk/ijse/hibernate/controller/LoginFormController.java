@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.LogBO;
 import lk.ijse.hibernate.bo.custom.impl.LogBOImpl;
 import lk.ijse.hibernate.dto.UserDTO;
@@ -24,7 +25,7 @@ public class LoginFormController {
     public JFXPasswordField txtPassword;
     public Label lblWrong;
     public AnchorPane loginFormContext;
-    private final LogBO logBO = new LogBOImpl();
+    private final LogBO logBO = (LogBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.LOG);
     public void btnLoginOnAction(ActionEvent actionEvent) throws Exception {
 
         if(txtUserName.getText().equals("") && txtPassword.getText().equals("")){

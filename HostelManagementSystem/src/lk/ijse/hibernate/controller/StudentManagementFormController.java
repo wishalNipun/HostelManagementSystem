@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.StudentBO;
 import lk.ijse.hibernate.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hibernate.dto.StudentDTO;
@@ -40,7 +41,7 @@ public class StudentManagementFormController {
     public JFXButton btnDelete;
     public JFXTextField txtName;
     public JFXTextField txtDOB;
-    private final  StudentBO studentBO = new StudentBOImpl();
+    private final  StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
     public JFXComboBox <String>cmbGender;
     public TableColumn colContactNo;
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();

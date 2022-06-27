@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.custom.RegistrationBO;
 import lk.ijse.hibernate.bo.custom.impl.RegistrationBOImpl;
 import lk.ijse.hibernate.dto.RoomDTO;
@@ -44,7 +45,7 @@ public class RegistrationFormController {
     public JFXTextField txtKeyMoney;
     public JFXTextField txtQty;
     public JFXComboBox<String> cmbPaymentStatus;
-    private final RegistrationBO registrationBO = new RegistrationBOImpl();
+    private final RegistrationBO registrationBO = (RegistrationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.REGISTRATION);
     public TableView<CartTM> tblCart;
 
     public void initialize(){
@@ -182,8 +183,7 @@ public class RegistrationFormController {
     public void btnRegisterOnAction(ActionEvent actionEvent) {
         try {
             registrationBO.Register(tblCart.getItems(),cmbStudentId.getValue(),lblReservation.getText());
-
-            System.out.println(tblCart.getItems());
+            new Alert(Alert.AlertType.CONFIRMATION,"Register Complete").show();
         } catch (Exception e) {
             e.printStackTrace();
         }
