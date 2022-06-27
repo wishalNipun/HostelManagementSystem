@@ -1,12 +1,13 @@
 package lk.ijse.hibernate.bo.custom;
 
+import lk.ijse.hibernate.bo.SuperBO;
 import lk.ijse.hibernate.dto.StudentDTO;
 import lk.ijse.hibernate.dto.UserDTO;
 
 import java.io.IOException;
 import java.util.List;
 
-public interface StudentBO {
+public interface StudentBO extends SuperBO {
     boolean saveStudent(StudentDTO dto) throws Exception;
 
     boolean updateStudent(StudentDTO dto) throws Exception;
