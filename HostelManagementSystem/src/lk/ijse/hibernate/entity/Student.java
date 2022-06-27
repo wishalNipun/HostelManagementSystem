@@ -3,6 +3,7 @@ package lk.ijse.hibernate.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class Student {
     @Id
