@@ -54,11 +54,27 @@ public class PendingKeyMoneyFormController {
         txtType.setEditable(false);
         txtKeyMoney.setEditable(false);
         txtDate.setEditable(false);
+
+        txtReservationId.setDisable(true);
+        txtName.setDisable(true);
+        txtRoomTypeId.setDisable(true);
+        txtStudentId.setDisable(true);
+        txtType.setDisable(true);
+        txtKeyMoney.setDisable(true);
+        txtDate.setDisable(true);
         btnUpdate.setDisable(true);
 
         tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue!= null){
+                txtReservationId.setDisable(false);
+                txtName.setDisable(false);
+                txtRoomTypeId.setDisable(false);
+                txtStudentId.setDisable(false);
+                txtType.setDisable(false);
+                txtKeyMoney.setDisable(false);
+                txtDate.setDisable(false);
                 btnUpdate.setDisable(false);
+
                 txtReservationId.setText(newValue.getRes_id());
                 txtName.setText(newValue.getName());
                 txtRoomTypeId.setText(newValue.getRoom_type_id());
@@ -100,6 +116,7 @@ public class PendingKeyMoneyFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+
         try {
             boolean b = pendingKeyMoneyBO.updateReservationUsingId(txtReservationId.getText(), String.valueOf(cmbPaymentStatus.getValue()));
             if (b){
@@ -116,6 +133,14 @@ public class PendingKeyMoneyFormController {
             txtKeyMoney.clear();
             cmbPaymentStatus.getSelectionModel().clearSelection();
             txtDate.clear();
+
+            txtReservationId.setDisable(true);
+            txtName.setDisable(true);
+            txtRoomTypeId.setDisable(true);
+            txtStudentId.setDisable(true);
+            txtType.setDisable(true);
+            txtKeyMoney.setDisable(true);
+            txtDate.setDisable(true);
             btnUpdate.setDisable(true);
 
         } catch (Exception e) {
