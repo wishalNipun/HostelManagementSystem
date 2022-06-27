@@ -186,7 +186,7 @@ public class RoomManagementFormController {
 
         if (keyEvent.getCode() == KeyCode.ENTER) {
             Object response = ValidationUtil.validate(map, btnSave);
-            
+
 
             if (response instanceof TextField) {
                 TextField textField = (TextField) response;
