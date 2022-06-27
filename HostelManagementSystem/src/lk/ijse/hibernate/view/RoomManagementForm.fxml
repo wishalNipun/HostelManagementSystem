@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="730.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.RoomManagementFormController">
    <children>
       <Separator layoutX="61.0" layoutY="71.0" prefHeight="12.0" prefWidth="959.0" />
-      <JFXTextField fx:id="txtRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Room Type Id" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Room Type Id" unFocusColor="BLACK" />
       <TableView fx:id="tblRoom" layoutX="78.0" layoutY="268.0" prefHeight="417.0" prefWidth="932.0">
          <columns>
             <TableColumn fx:id="colRoomId" prefWidth="216.0" text="Room Type Id" />
@@ -24,9 +24,9 @@
             <TableColumn fx:id="colQty" prefWidth="170.0" text="Quantity" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="txtKeyMoney" focusColor="BLACK" labelFloat="true" layoutX="577.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Key Money" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtKeyMoney" focusColor="BLACK" labelFloat="true" layoutX="577.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Key Money" unFocusColor="BLACK" />
       <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="679.0" layoutY="206.0" onAction="#btnSaveOnAction" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #3498db;" text="Save" />
-      <JFXTextField fx:id="txtQty" focusColor="BLACK" labelFloat="true" layoutX="815.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Quantity" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtQty" focusColor="BLACK" labelFloat="true" layoutX="815.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Quantity" unFocusColor="BLACK" />
       <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="387.0" text="Room Management">
          <font>
             <Font name="System Bold" size="36.0" />
