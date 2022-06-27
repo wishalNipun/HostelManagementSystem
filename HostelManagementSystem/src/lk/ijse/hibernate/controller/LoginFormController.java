@@ -46,8 +46,6 @@ public class LoginFormController {
                 new Alert(Alert.AlertType.WARNING,"Wrong UserName OR Password, Try Again!").show();
             }
 
-
-
         }else {
             new Alert(Alert.AlertType.WARNING,"Try Again !").show();
         }
