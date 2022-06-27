@@ -1,6 +1,7 @@
 package lk.ijse.hibernate.bo.custom.impl;
 
 import lk.ijse.hibernate.bo.custom.PendingKeyMoneyBO;
+import lk.ijse.hibernate.dao.DAOFactory;
 import lk.ijse.hibernate.dao.custom.QueryDAO;
 import lk.ijse.hibernate.dao.custom.RegistrationDAO;
 import lk.ijse.hibernate.dao.custom.impl.QueryDAOImpl;
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PendingKeyMoneyBOImpl implements PendingKeyMoneyBO {
-    final private RegistrationDAO registrationDAO = new RegistrationDAOImpl();
-    final private  QueryDAO queryDAO = new QueryDAOImpl();
+    final private RegistrationDAO registrationDAO = (RegistrationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.REGISTRATION);
+    final private  QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERYDAO);
     @Override
     public ArrayList<CustomDTO> getAllPendingKeyMoneyReservationsUsingReservationStatus() throws Exception {
         List<Object[]> objects = queryDAO.getAllPendingKeyMoneyReservationsUsingReservationStatus();
