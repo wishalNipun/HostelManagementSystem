@@ -26,9 +26,9 @@
             <TableColumn fx:id="colGender" prefWidth="140.0" text="Gender" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="577.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Address" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="577.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Address" unFocusColor="BLACK" />
       <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="715.0" layoutY="206.0" onAction="#btnSaveOnAction" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #3498db;" text="Save" />
-      <JFXTextField fx:id="txtContactNo" focusColor="BLACK" labelFloat="true" layoutX="815.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Contact No" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtContactNo" focusColor="BLACK" labelFloat="true" layoutX="815.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Contact No" unFocusColor="BLACK" />
       <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="387.0" text="Student Management">
          <font>
             <Font name="System Bold" size="36.0" />
@@ -44,8 +44,8 @@
       </Label>
       <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="952.0" layoutY="32.0" onAction="#btnNewOnAction" prefHeight="40.0" prefWidth="66.0" style="-fx-background-color: #3498db; -fx-background-radius: 2.0em;" text="New +" />
       <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="888.0" layoutY="206.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #3498db;" text="Delete" />
-      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="315.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Name" unFocusColor="BLACK" />
-      <JFXTextField fx:id="txtDOB" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="206.0" prefHeight="40.0" prefWidth="192.0" promptText="Date Of Birth" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="315.0" layoutY="134.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Name" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtDOB" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="206.0" onKeyReleased="#textFields_Key_Released" prefHeight="40.0" prefWidth="192.0" promptText="Date Of Birth" unFocusColor="BLACK" />
       <JFXComboBox fx:id="cmbGender" focusColor="BLACK" labelFloat="true" layoutX="315.0" layoutY="206.0" prefHeight="40.0" prefWidth="192.0" promptText="Gender" unFocusColor="BLACK" />
    </children>
 </AnchorPane>

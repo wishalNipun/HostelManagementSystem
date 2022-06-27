@@ -5,22 +5,24 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hibernate.bo.custom.StudentBO;
 import lk.ijse.hibernate.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hibernate.dto.StudentDTO;
 import lk.ijse.hibernate.dto.UserDTO;
+import lk.ijse.hibernate.util.ValidationUtil;
 import lk.ijse.hibernate.view.tm.StudentTM;
 import lk.ijse.hibernate.view.tm.UserTM;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 
 public class StudentManagementFormController {
@@ -41,6 +43,7 @@ public class StudentManagementFormController {
     private final  StudentBO studentBO = new StudentBOImpl();
     public JFXComboBox <String>cmbGender;
     public TableColumn colContactNo;
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
 
     public void initialize(){
 
@@ -79,7 +82,15 @@ public class StudentManagementFormController {
 
             }
         });
+        Pattern namePattern = Pattern.compile("^[A-z ]{3,30}$");
+        Pattern addressPattern = Pattern.compile("^[A-z0-9 /,]{4,20}$");
+        Pattern contactNoPattern = Pattern.compile("^(?:7|0|(?:\\+94))(70|77|78|74|76|72|71)[0-9]{7}$");
+        Pattern date = Pattern.compile("^[1-9]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}$");
 
+        map.put(txtName,namePattern);
+        map.put(txtAddress,addressPattern);
+        map.put(txtContactNo,contactNoPattern);
+        map.put(txtDOB,date);
     }
 
     private void loadAllStudents() {
@@ -216,5 +227,17 @@ public class StudentManagementFormController {
         btnSave.setDisable(false);
         btnSave.setText("Save");
         tblStudent.getSelectionModel().clearSelection();
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnSave);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            Object response =  ValidationUtil.validate(map,btnSave);;
+
+            if (response instanceof TextField) {
+                TextField textField = (TextField) response;
+                textField.requestFocus();  }
+        }
     }
 }
